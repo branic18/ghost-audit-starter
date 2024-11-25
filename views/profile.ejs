@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <title>Privacy Audit Tool</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span></span> Ghost Audit Profile</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+    
+    <% if (user) { %>
+        <div class="row">
+            <div class="profile-container">
+                <h2>Explore your digital protection!</h2>
+    
+                <% if (testResult && testResult.score != null) { %>
+                    <div class="test-result">
+                        <h3>Your Privacy Knowledge Score: <%= testResult.score %></h3>
+                        <p><%= testResult.score >= 3 ? 'You are very knowledgeable about digital privacy!' : 'You could improve your digital privacy knowledge.' %></p>
+                        <a href="/test" class="button" id="redoTestButton"><button>Redo Test</button></a>
+    
+                        <form id="deleteTestForm" action="/deleteTest/<%= testResult._id %>?_method=DELETE" method="POST">
+                            <button type="submit">Delete Test Results</button>
+                        </form>
+                    </div>
+                    <button id="goToTestPage" style="display:none;">Test Your Privacy Knowledge</button>
+                <% } else { %>
+                    <button id="goToTestPage">Test Your Privacy Knowledge</button>
+                    <p class="test-result" id="testResult">No test results available. Please take the test.</p>
+                <% } %>
+    
+            </div>
+        </div>
+    <% } else { %>
+        <p>Please log in to take your test.</p>
+    <% } %>
+        
+    
+      
+
+          
+</div>
+
+<script src="/main.js"></script>
+
+</body>
+</html>
