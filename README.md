@@ -1,4 +1,4 @@
-# Ghost Audit 👻
+# Ghost Audit Starter 👻
 
 A tool that evaluates the privacy settings of users’ social media accounts to compose a digestible visual report that provides recommendations to improve their online privacy practice and empower their digital safety. A special feature is using two-factor authentication to keep their accounts secure on the privacy audit tool.
 
